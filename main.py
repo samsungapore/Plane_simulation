@@ -18,17 +18,18 @@ sense = SenseHat()
 # compas : desactive | gyroscope : active | accelerometre : desactive
 sense.set_imu_config(False, True, False)
 
+# assigne les paramètres gyroscope a la structure
+def get_gyroscope_info():
+    orientation = sense.get_gyroscope()
+    return (plane(orientation.roulis, orientation.tangage, orientation.lacet))
+
+
 # recupere les donnees initiales d'orientation selon les trois axes
 sens.show_message("Getting orientation data...", text_colour=[255, 0, 0])
 avion = get_gyroscope_info()
 
 # message console de debug, pas affiche sur le sense hat, mais sur un terminal
 print("p: {pitch}, r: {roll}, y: {yaw}".format(**orientation))
-
-# assigne les paramètres gyroscope a la structure
-def get_gyroscope_info():
-    orientation = sense.get_gyroscope()
-    return (plane(orientation.roulis, orientation.tangage, orientation.lacet))
 
 
 def axe_calculus(axe):
