@@ -20,7 +20,7 @@ sense.set_imu_config(False, True, False)
 
 # recupere les donnees initiales d'orientation selon les trois axes
 sens.show_message("Getting orientation data...", text_colour=[255, 0, 0])
-orientation = sense.get_gyroscope()
+avion = get_gyroscope_info()
 
 # message console de debug, pas affiche sur le sense hat, mais sur un terminal
 print("p: {pitch}, r: {roll}, y: {yaw}".format(**orientation))
